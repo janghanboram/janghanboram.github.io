@@ -14,7 +14,7 @@
 <meta property="og:description" content="렌더링 최적화를 공부하기 전에, 브라우저가 어떤 역할을 하고, 렌더링 과정에서 어떤 일이 일어나는 지에 대해서 알아봅니다.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://janghanboram.github.io/images/thumbnail/front_end_must_know_1.png">
-<meta property="og:updated_time" content="2018-06-06T15:26:42.000Z">
+<meta property="og:updated_time" content="2018-06-12T15:14:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="브라우저 렌더링">
 <meta name="twitter:description" content="렌더링 최적화를 공부하기 전에, 브라우저가 어떤 역할을 하고, 렌더링 과정에서 어떤 일이 일어나는 지에 대해서 알아봅니다.">
@@ -287,7 +287,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="브라우저의-렌더링-과정"><a href="#브라우저의-렌더링-과정" class="headerlink" title="브라우저의 렌더링 과정"></a>브라우저의 렌더링 과정</h1><h2 id="1-브라우저의-렌더링-엔진-요약"><a href="#1-브라우저의-렌더링-엔진-요약" class="headerlink" title="1. 브라우저의 렌더링 엔진 - 요약"></a>1. 브라우저의 렌더링 엔진 - 요약</h2><p>앞에서 살펴본 바와 같이, 브라우저의 렌더링 엔진은 서버로부터 받은 내용을 브라우저에 표시하는 역할을 한다.<br>다섯 단계를 거친다. 2번 CSSOM 생성 과정을 따로 분리하지 않고, 네 단계로 표현하기도 한다.</p>
+<hr>
+<h1 id="브라우저의-렌더링-과정"><a href="#브라우저의-렌더링-과정" class="headerlink" title="브라우저의 렌더링 과정"></a>브라우저의 렌더링 과정</h1><h2 id="1-브라우저의-렌더링-엔진-요약"><a href="#1-브라우저의-렌더링-엔진-요약" class="headerlink" title="1. 브라우저의 렌더링 엔진 - 요약"></a>1. 브라우저의 렌더링 엔진 - 요약</h2><p>앞에서 살펴본 바와 같이, 브라우저의 렌더링 엔진은 서버로부터 받은 내용을 브라우저에 표시하는 역할을 한다.<br>다시 말해서, 서버로부터 받은 내용(HTML, CSS, Javascript ..등의 파일)을 변환해서 화면에 픽셀 단위로 나타내는 과정이다.</p>
+<blockquote>
 <ol>
 <li>DOM(Document Object Model) 생성</li>
 <li>CSSOM(CSS Object Model) 생성</li>
@@ -295,16 +297,60 @@
 <li>Render Tree 배치</li>
 <li>Render Tree 그리기</li>
 </ol>
+</blockquote>
+<p>위와 같이 다섯 단계를 거친다. 2번 CSSOM 생성 과정을 따로 분리하지 않고, 네 단계로 표현하기도 한다.</p>
 <h2 id="2-렌더링-엔진-flow-chart"><a href="#2-렌더링-엔진-flow-chart" class="headerlink" title="2. 렌더링 엔진 flow chart"></a>2. 렌더링 엔진 flow chart</h2><p>Webkit과 Gecko 엔진에서는 이 과정을 각각 어떻게 처리하는 지 알아보겠다.</p>
 <h3 id="Webkit-엔진에서-…"><a href="#Webkit-엔진에서-…" class="headerlink" title="Webkit 엔진에서 …"></a>Webkit 엔진에서 …</h3><img src="/2018/06/06/browser-rendering/webkit_flow.png" title="webkit render engine flow chart">
 <ol>
-<li>DOM(Document Object Model) 생성</li>
-<li>CSSOM(CSS Object Model) 생성</li>
-<li>Render Tree(=DOM + CSSOM) 생성</li>
-<li>Render Tree 배치</li>
-<li>Render Tree 그리기</li>
+<li><p>DOM(Document Object Model) 생성</p>
+<ul>
+<li><p>다음 네 단계를 거쳐서, 트리 구조 모양의 DOM이 생성된다.</p>
+<ol>
+<li>Conversion(변환) : HTML의 raw bytes(원시 바이트)형태로 서버에서 받아온다. 해당 파일의 인코딩(예:UTF-8)에 따라 문자로 변환한다.</li>
+<li>Tokenizing(토큰화) : 브라우저가 변환된 문자열을 HTML5 표준에 따라 고유 토큰으로 변환한다.</li>
+<li>Lexing(렉싱) : 이 토큰들은 다시 각각의 특성과 규칙을 정의한 object(객체) “노드”로 변환된다.</li>
+<li>DOM 생성 : HTML 마크업이 여러 태그 간의 관계를 나타내기 때문에 DOM은 트리 구조를 가진다. 따라서, DOM에 포함된 노드 또한 서로 관계성을 가지게 된다. 다시 말해서, 노드의 상대적인 관계를 이용하면, 하나의 노드를 기준으로 모든 노드에 접근할 수 있다. <a href="https://codepen.io/gooodev/pen/BVRdgy" target="_blank" rel="noopener">codepen참고</a></li>
 </ol>
-<h3 id="Gecko-엔진에서-…"><a href="#Gecko-엔진에서-…" class="headerlink" title="Gecko 엔진에서 …"></a>Gecko 엔진에서 …</h3><p>바로 전에 살펴본, Webkit 엔진과 다른 점이 보인다. 그렇지만 자세히 살펴보면, 그 흐름은 비슷하다.</p>
+</li>
+<li><p>DOM 트리는 문서 마크업의 속성과 관계를 포함하지만, 렌더링될 때 표시되는 모습에 대해서는 CSSOM이 관여한다.</p>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>CSSOM(CSS Object Model) 생성</p>
+<ul>
+<li><p>1.에서 HTML에 했던 과정을 그대로 CSS에 반복한다. 그 결과로 브라우저가 이해하고 처리할 수 있는 형식으로 변환된다.</p>
+</li>
+<li><p>CSSOM 역시 트리 구조를 가지는데, 그 이유는, ‘하향식’으로 규칙을 적용하기 때문이다. 루트부터 시작해서, 트리를 만들어 가는 방식으로, CSSOM의 경우에 루트가 body이다. 모든 요소의 최종 스타일을 확정할 때 브라우저는 해당 노드에 적용 가능한 가장 일반적인 규칙으로 시작한 후에 더욱 구체적인 규칙을 적용한다.</p>
+</li>
+</ul>
+</li>
+<li><p>Render Tree(=DOM + CSSOM) 생성 - Attachment</p>
+<ul>
+<li><p>DOM 트리의 루트(html)에서 시작해서, 페이지에 표시되는 각각의 노드에 일치하는 CSSOM 규칙을 찾아 붙인다.</p>
+</li>
+<li><p>이때, 렌더링 트리에는 페이지를 렌더링하는 데 필요한 노드만 포함된다. 따라서, 메타 태그나 스크립트 태그 같은 노드나 <code>display : none</code> 으로 스타일이 지정된 노드는 제외된다. 그러나, <code>visibility : hidden</code> 스타일이 적용된 노드는 보이지는 않지만 공간을 차지하므로, 렌더링 트리에 포함된다.</p>
+</li>
+<li><p>이 렌더링 트리가 화면에서 최종적으로 그리는 내용이 된다.</p>
+</li>
+</ul>
+</li>
+<li><p>Render Tree 배치 - Layout</p>
+<ul>
+<li><p>지금까지의 과정을 요약하면, 브라우저가 화면에 표시할 노드와 해당 노드의 스타일을 계산하면서, 하나의 그룹으로 묶어서 렌더링 트리를 만든 것이다.</p>
+</li>
+<li><p>레이아웃은 브라우저가 화면에 그리기 전에, 이 노드들을 정확한 위치와 크기로 나타내기 위해서 계산하는 과정이다. 이때, 모든 상대적인 값(예:%단위)은 절대적인 값(예:px단위)로 변환된다.</p>
+</li>
+</ul>
+</li>
+<li><p>Render Tree 그리기 - Painting</p>
+<ul>
+<li>렌더링 트리의 각 노드를 화면의 픽셀로 나타내는 작업이다.</li>
+</ul>
+</li>
+</ol>
+<h3 id="Gecko-엔진에서-…"><a href="#Gecko-엔진에서-…" class="headerlink" title="Gecko 엔진에서 …"></a>Gecko 엔진에서 …</h3><p>언뜻 보면, 바로 전에 살펴본 Webkit 엔진 플로우 차트와 다른 점이 보인다. 그렇지만 자세히 살펴보면, 그 흐름은 비슷하다는 것을 알 수 있다.</p>
 <img src="/2018/06/06/browser-rendering/gecko_flow.jpg" title="gecko render engine flow chart">
 <table>
 <thead>
@@ -320,19 +366,19 @@
 <td style="text-align:center">1</td>
 <td style="text-align:center">없음.</td>
 <td style="text-align:center">content sink</td>
-<td style="text-align:center">DOM 엘리먼트를 만드는 공장</td>
+<td style="text-align:center">DOM 노드를 만드는 공장</td>
 </tr>
 <tr>
 <td style="text-align:center">2</td>
 <td style="text-align:center">Layout</td>
 <td style="text-align:center">Reflow</td>
-<td style="text-align:center">엘리먼트 배치</td>
+<td style="text-align:center">노드 배치</td>
 </tr>
 <tr>
 <td style="text-align:center">3</td>
 <td style="text-align:center">Render Tree</td>
 <td style="text-align:center">Frame Tree</td>
-<td style="text-align:center">렌더링 오브젝트들의 묶음(그룹)</td>
+<td style="text-align:center">렌더링할 노드들의 묶음(그룹)</td>
 </tr>
 </tbody>
 </table>
@@ -359,7 +405,7 @@
 
 </div>
 
-    <a data-url="http://janghanboram.github.io/2018/06/06/browser-rendering/" data-id="cji39ks6p00009e5w7nxsx74y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://janghanboram.github.io/2018/06/06/browser-rendering/" data-id="cjibtvwlh00014d5wics9vci6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
