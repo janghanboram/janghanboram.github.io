@@ -14,7 +14,7 @@
 <meta property="og:description" content="렌더링 최적화를 공부하기 전에, 브라우저가 어떤 역할을 하고, 렌더링 과정에서 어떤 일이 일어나는 지에 대해서 알아봅니다.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://janghanboram.github.io/images/thumbnail/front_end_must_know_1.png">
-<meta property="og:updated_time" content="2018-06-12T15:14:53.000Z">
+<meta property="og:updated_time" content="2018-06-15T07:11:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="브라우저 렌더링">
 <meta name="twitter:description" content="렌더링 최적화를 공부하기 전에, 브라우저가 어떤 역할을 하고, 렌더링 과정에서 어떤 일이 일어나는 지에 대해서 알아봅니다.">
@@ -316,13 +316,11 @@
 </li>
 </ul>
 </li>
-</ol>
-<ol>
 <li><p>CSSOM(CSS Object Model) 생성</p>
 <ul>
-<li><p>1.에서 HTML에 했던 과정을 그대로 CSS에 반복한다. 그 결과로 브라우저가 이해하고 처리할 수 있는 형식으로 변환된다.</p>
+<li><p>1.에서 HTML에 했던 과정을 그대로 CSS에 반복한다. 그 결과로 브라우저가 이해하고 처리할 수 있는 형식(Style Rules)으로 변환된다.</p>
 </li>
-<li><p>CSSOM 역시 트리 구조를 가지는데, 그 이유는, ‘하향식’으로 규칙을 적용하기 때문이다. 루트부터 시작해서, 트리를 만들어 가는 방식으로, CSSOM의 경우에 루트가 body이다. 모든 요소의 최종 스타일을 확정할 때 브라우저는 해당 노드에 적용 가능한 가장 일반적인 규칙으로 시작한 후에 더욱 구체적인 규칙을 적용한다.</p>
+<li><p>CSSOM 역시 트리 구조를 가지는데, 그 이유는, ‘하향식’으로 규칙을 적용하기 때문이다. 루트(body)부터 시작해서, 트리를 만들어 가는 방식이다. 모든 요소의 최종 스타일을 확정할 때 브라우저는 해당 노드에 적용 가능한 가장 일반적인 규칙으로 시작한 후에 더욱 구체적인 규칙을 적용한다.</p>
 </li>
 </ul>
 </li>
@@ -394,8 +392,10 @@
 <li><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/constructing-the-object-model?hl=ko" target="_blank" rel="noopener">구글 Web Fundamentals : Critical Rendering Path</a> </li>
 <li><a href="https://d2.naver.com/helloworld/59361" target="_blank" rel="noopener">Naver D2 : 브라우저는 어떻게 동작하는가?</a></li>
 </ul>
-<h3 id="첫-포스팅-소감"><a href="#첫-포스팅-소감" class="headerlink" title="첫 포스팅 소감"></a>첫 포스팅 소감</h3><p>새해에 새로운 사람으로 거듭나고자, 야심차게 만든 블로그 였지만, 2018년의 절반이 지나도록 포스팅을 1도 하지 못했다.(.. 아니 않았다. ㅠㅠ)<br>지난 8주간 패스트캠퍼스에서 진행된, 장기효님의 “<a href="http://www.fastcampus.co.kr/dev_camp_wap/" target="_blank" rel="noopener">Vue로 구현하는 PWA 캠프</a>” 수업을 들으면서, 슬럼프에 빠져있던 내게 많은 동기 부여가 되었다.<br>배운 내용을 복습하는 첫 포스팅을 시작으로, 부디 나 자신아, 부지런한 개발자가 되자.</p>
-
+<!-- ### 첫 포스팅 소감
+새해에 새로운 사람으로 거듭나고자, 야심차게 만든 블로그 였지만, 2018년의 절반이 지나도록 포스팅을 1도 하지 못했다.(.. 아니 않았다. ㅠㅠ)
+지난 8주간 패스트캠퍼스에서 진행된, 장기효님의 “[Vue로 구현하는 PWA 캠프](http://www.fastcampus.co.kr/dev_camp_wap/)” 수업을 들으면서, 슬럼프에 빠져있던 내게 많은 동기 부여가 되었다.
+배운 내용을 복습하는 첫 포스팅을 시작으로, 부디 나 자신아, 부지런한 개발자가 되자. -->
         
         </div>
         <footer class="article-footer">
@@ -405,7 +405,7 @@
 
 </div>
 
-    <a data-url="http://janghanboram.github.io/2018/06/06/browser-rendering/" data-id="cjibtvwlh00014d5wics9vci6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://janghanboram.github.io/2018/06/06/browser-rendering/" data-id="cjifmxepy0000tg5wy5jfhp0f" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
