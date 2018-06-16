@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <link rel="canonical" href="http://janghanboram.github.io/2018/06/06/browser-rendering/"/>
+    <link rel="canonical" href="http://janghanboram.github.io/2018/06/06/browser-rendering/">
     
     <title>브라우저 렌더링 | janghanboram&#39;s blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="렌더링 최적화를 공부하기 전에, 브라우저가 어떤 역할을 하고, 렌더링 과정에서 어떤 일이 일어나는 지에 대해서 알아봅니다.">
 <meta name="keywords" content="브라우저 렌더링,최적화,FrontEnd">
 <meta property="og:type" content="article">
@@ -46,7 +46,7 @@
 
 
 </head>
-
+</html>
 <body>
     <div id="container">
         <header id="header">
@@ -70,7 +70,7 @@
                 <nav id="sub-nav">
                     <div class="profile" id="profile-nav">
                         <a id="profile-anchor" href="javascript:;">
-                            <img class="avatar" src="/css/images/avatar.jpg" />
+                            <img class="avatar" src="/css/images/avatar.jpg">
                             <i class="fa fa-caret-down"></i>
                         </a>
                     </div>
@@ -79,14 +79,14 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -128,7 +128,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -144,11 +144,11 @@
 <aside id="profile">
     <div class="inner profile-inner">
         <div class="base-info profile-block">
-            <img id="avatar" src="/css/images/avatar.jpg" />
+            <img id="avatar" src="/css/images/avatar.jpg">
             <h2 id="name">janghanboram</h2>
             <h3 id="title">Front-End Developer</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Seoul, KOREA</span>
-            <a id="follow" target="_blank" href="https://github.com/janghanboram/">FOLLOW</a>
+            <a id="follow" target="_blank" href="https://github.com/janghanboram/" rel="external nofollow noopener noreferrer">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
@@ -167,13 +167,13 @@
                     
                     
                     <td>
-                        <a href="https://github.com/janghanboram/" target="_blank" title="github" class=tooltip>
+                        <a href="https://github.com/janghanboram/" target="_blank" title="github" class="tooltip" rel="external nofollow noopener noreferrer">
                             <i class="fa fa-github"></i>
                         </a>
                     </td>
                     
                     <td>
-                        <a href="https://www.instagram.com/gooodev_/" target="_blank" title="instagram" class=tooltip>
+                        <a href="https://www.instagram.com/gooodev_/" target="_blank" title="instagram" class="tooltip" rel="external nofollow noopener noreferrer">
                             <i class="fa fa-instagram"></i>
                         </a>
                     </td>
@@ -186,12 +186,12 @@
 </aside>
 
             
-            <section id="main"><article id="post-browser-rendering" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-browser-rendering" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
             
 	
-		<img src="/images/banner/front_end_must_know_1.png" class="article-banner" />
+		<img src="/images/banner/front_end_must_know_1.png" class="article-banner">
 	
 
 
@@ -241,8 +241,8 @@
 <h1 id="브라우저에-대해서"><a href="#브라우저에-대해서" class="headerlink" title="브라우저에 대해서"></a>브라우저에 대해서</h1><h2 id="1-브라우저의-역할"><a href="#1-브라우저의-역할" class="headerlink" title="1. 브라우저의 역할"></a>1. 브라우저의 역할</h2><p>사용자가 선택한 자원(URL)을 서버에 요청하고 받아 화면에서 표시한다. 조금 더 풀어서 이야기하면, 주소창에 주소를 입력한 후, 엔터를 치면 브라우저가 해당 주소로 요청을 보낸다. 이때, 요청을 받은 곳, 즉, 서버에서 응답을 보내준다. 브라우저는 요청에 대한 결과(응답)를 화면에 그린다.</p>
 <img src="/2018/06/06/browser-rendering/client_server.png" title="description of the communication betewwen server and client">
 <h5 id="참고-내용"><a href="#참고-내용" class="headerlink" title="참고 내용"></a>참고 내용</h5><ul>
-<li>더 자세한 설명이 필요하다면, “이고잉님의 서버와 클라이언트” <a href="https://www.youtube.com/watch?v=YfXj8kOo7j4" target="_blank" rel="noopener">바로보기</a>를 추천한다.</li>
-<li>브라우저가 HTML을 해석하고 화면에 나타내는 방법은 표준을 따른다. 때로는, 같은 소스코드지만 브라우저마다 다른 결과를 볼 수 있는데, 브라우저에 따라 지원하는 스펙이 달라서 일어나는 현상이다.(<a href="https://caniuse.com/" target="_blank" rel="noopener">Can I Use</a>에서 확인 가능)</li>
+<li>더 자세한 설명이 필요하다면, “이고잉님의 서버와 클라이언트” <a href="https://www.youtube.com/watch?v=YfXj8kOo7j4" rel="external nofollow noopener noreferrer" target="_blank">바로보기</a>를 추천한다.</li>
+<li>브라우저가 HTML을 해석하고 화면에 나타내는 방법은 표준을 따른다. 때로는, 같은 소스코드지만 브라우저마다 다른 결과를 볼 수 있는데, 브라우저에 따라 지원하는 스펙이 달라서 일어나는 현상이다.(<a href="https://caniuse.com/" rel="external nofollow noopener noreferrer" target="_blank">Can I Use</a>에서 확인 가능)</li>
 </ul>
 <h2 id="2-브라우저의-구조"><a href="#2-브라우저의-구조" class="headerlink" title="2. 브라우저의 구조"></a>2. 브라우저의 구조</h2><img src="/2018/06/06/browser-rendering/browser_structure.png" title="browser structure">
 <ul>
@@ -306,7 +306,7 @@
 <li>Conversion(변환) : HTML의 raw bytes(원시 바이트)형태로 서버에서 받아온다. 해당 파일의 인코딩(예:UTF-8)에 따라 문자로 변환한다.</li>
 <li>Tokenizing(토큰화) : 브라우저가 변환된 문자열을 HTML5 표준에 따라 고유 토큰으로 변환한다.</li>
 <li>Lexing(렉싱) : 이 토큰들은 다시 각각의 특성과 규칙을 정의한 object(객체) “노드”로 변환된다.</li>
-<li>DOM 생성 : HTML 마크업이 여러 태그 간의 관계를 나타내기 때문에 DOM은 트리 구조를 가진다. 따라서, DOM에 포함된 노드 또한 서로 관계성을 가지게 된다. 다시 말해서, 노드의 상대적인 관계를 이용하면, 하나의 노드를 기준으로 모든 노드에 접근할 수 있다. <a href="https://codepen.io/gooodev/pen/BVRdgy" target="_blank" rel="noopener">codepen참고</a></li>
+<li>DOM 생성 : HTML 마크업이 여러 태그 간의 관계를 나타내기 때문에 DOM은 트리 구조를 가진다. 따라서, DOM에 포함된 노드 또한 서로 관계성을 가지게 된다. 다시 말해서, 노드의 상대적인 관계를 이용하면, 하나의 노드를 기준으로 모든 노드에 접근할 수 있다. <a href="https://codepen.io/gooodev/pen/BVRdgy" rel="external nofollow noopener noreferrer" target="_blank">codepen참고</a></li>
 </ol>
 </li>
 <li><p>DOM 트리는 문서 마크업의 속성과 관계를 포함하지만, 렌더링될 때 표시되는 모습에 대해서는 CSSOM이 관여한다.</p>
@@ -384,10 +384,10 @@
 <li>문제 해결 방법 : 최적화</li>
 </ul>
 <h3 id="참고-자료"><a href="#참고-자료" class="headerlink" title="참고 자료"></a>참고 자료</h3><ul>
-<li>패스트캠퍼스 강의 : 장기효님의 “<a href="http://www.fastcampus.co.kr/dev_camp_wap/" target="_blank" rel="noopener">Vue로 구현하는 PWA 캠프</a>”</li>
-<li><a href="http://taligarsiel.com/Projects/howbrowserswork1.htm#The_rendering_engines_threads" target="_blank" rel="noopener">How Browsers Work</a></li>
-<li><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/constructing-the-object-model?hl=ko" target="_blank" rel="noopener">구글 Web Fundamentals : Critical Rendering Path</a> </li>
-<li><a href="https://d2.naver.com/helloworld/59361" target="_blank" rel="noopener">Naver D2 : 브라우저는 어떻게 동작하는가?</a></li>
+<li>패스트캠퍼스 강의 : 장기효님의 “<a href="http://www.fastcampus.co.kr/dev_camp_wap/" rel="external nofollow noopener noreferrer" target="_blank">Vue로 구현하는 PWA 캠프</a>”</li>
+<li><a href="http://taligarsiel.com/Projects/howbrowserswork1.htm#The_rendering_engines_threads" rel="external nofollow noopener noreferrer" target="_blank">How Browsers Work</a></li>
+<li><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/constructing-the-object-model?hl=ko" rel="external nofollow noopener noreferrer" target="_blank">구글 Web Fundamentals : Critical Rendering Path</a> </li>
+<li><a href="https://d2.naver.com/helloworld/59361" rel="external nofollow noopener noreferrer" target="_blank">Naver D2 : 브라우저는 어떻게 동작하는가?</a></li>
 </ul>
 <!-- ### 첫 포스팅 소감
 새해에 새로운 사람으로 거듭나고자, 야심차게 만든 블로그 였지만, 2018년의 절반이 지나도록 포스팅을 1도 하지 못했다.(.. 아니 않았다. ㅠㅠ)
@@ -402,7 +402,7 @@
 
 </div>
 
-    <a data-url="http://janghanboram.github.io/2018/06/06/browser-rendering/" data-id="cjihi339800009i5wmxfc3geo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://janghanboram.github.io/2018/06/06/browser-rendering/" data-id="cjihi46jb0001dn5wjb5g2cq1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -499,7 +499,7 @@
     <div class="outer">
         <div id="footer-info" class="inner">
             &copy; 2018 Robbin Hanboram Jang<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+            Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme by <a href="http://github.com/ppoffice" rel="external nofollow noopener noreferrer" target="_blank">PPOffice</a>
         </div>
     </div>
 </footer>
@@ -546,4 +546,3 @@
 
     </div>
 </body>
-</html>
