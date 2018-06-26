@@ -15,7 +15,7 @@
 <meta property="og:description" content="렌더링 최적화를 공부하기 전에, 브라우저가 어떤 역할을 하고, 렌더링 과정에서 어떤 일이 일어나는 지에 대해서 알아봅니다.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://janghanboram.github.io/images/thumbnail/front_end_must_know_1.png">
-<meta property="og:updated_time" content="2018-06-24T13:41:33.261Z">
+<meta property="og:updated_time" content="2018-06-26T14:02:14.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="브라우저 렌더링">
 <meta name="twitter:description" content="렌더링 최적화를 공부하기 전에, 브라우저가 어떤 역할을 하고, 렌더링 과정에서 어떤 일이 일어나는 지에 대해서 알아봅니다.">
@@ -279,7 +279,7 @@ ga('send', 'pageview');
 </tr>
 <tr>
 <td style="text-align:center">Chrome</td>
-<td style="text-align:center">Webkit</td>
+<td style="text-align:center">Webkit, Blink(버전 28이후)</td>
 </tr>
 <tr>
 <td style="text-align:center">Safari</td>
@@ -291,10 +291,14 @@ ga('send', 'pageview');
 </tr>
 <tr>
 <td style="text-align:center">Opera</td>
-<td style="text-align:center">Presto</td>
+<td style="text-align:center">Presto, Blink(버전 15이후)</td>
 </tr>
 </tbody>
 </table>
+<h5 id="참고-내용-1"><a href="#참고-내용-1" class="headerlink" title="참고 내용"></a>참고 내용</h5><ul>
+<li>Blink 개발은 구글이 Webkit을 포크하고, 제갈길을 가면서 시작되었다.</li>
+<li><a href="https://arstechnica.com/information-technology/2013/04/google-going-its-own-way-forking-webkit-rendering-engine/" rel="external nofollow noopener noreferrer" target="_blank">Google going its own way, forking WebKit rendering engine</a></li>
+</ul>
 <hr>
 <h1 id="브라우저의-렌더링-과정"><a href="#브라우저의-렌더링-과정" class="headerlink" title="브라우저의 렌더링 과정"></a>브라우저의 렌더링 과정</h1><h2 id="1-브라우저의-렌더링-엔진-critical-rendering-path"><a href="#1-브라우저의-렌더링-엔진-critical-rendering-path" class="headerlink" title="1. 브라우저의 렌더링 엔진 - critical rendering path"></a>1. 브라우저의 렌더링 엔진 - critical rendering path</h2><p>앞에서 살펴본 바와 같이, 브라우저의 렌더링 엔진은 서버로부터 받은 내용을 브라우저에 표시하는 역할을 한다.<br>다시 말해서, 서버로부터 받은 내용(HTML, CSS, Javascript ..등의 파일)을 변환해서 화면에 픽셀 단위로 나타내는 과정이다.</p>
 <blockquote>
@@ -413,7 +417,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://janghanboram.github.io/2018/06/06/browser-rendering/" data-id="cjisvtx8n0002j55wzekt5m5e" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://janghanboram.github.io/2018/06/06/browser-rendering/" data-id="cjivra0eb0002ak5w255bmjz9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
